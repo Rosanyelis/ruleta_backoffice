@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MoldeHora;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,11 +20,9 @@ class DatabaseSeeder extends Seeder
             PersonaSeeder::class,
             ResponsableSeeder::class,
             ClienteSeeder::class,
-            TaquillaSeeder::class,
-            CombinacionSeeder::class,
-            TicketSeeder::class,
-            DetallesTicketSeeder::class,
-            BalanceSeeder::class,
+            HoraSeeder::class,
+            JugadaSeeder::class,
+            MoldeHorariosSeeder::class,
         ]);
     }
 }

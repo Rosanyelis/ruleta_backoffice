@@ -42,18 +42,47 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
+
                 <li>
-                    <a href="{{ url('/combinaciones') }}">
-                        <i data-feather="inbox"></i>
-                        <span> Combinaciones </span>
+                    <a href="javascript: void(0);">
+                        <i data-feather="bookmark"></i>
+                        <span> Grupos </span>
+                        <span class="menu-arrow"></span>
                     </a>
+
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="{{ url('/responsables') }}">Responsables</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/clientes') }}">Clientes</a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">Taquillas</a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li>
-                    <a href="{{ url('/responsables') }}">
-                        <i data-feather="inbox"></i>
-                        <span> Responsables </span>
+                    <a href="javascript: void(0);">
+                        <i data-feather="bookmark"></i>
+                        <span> Plantillas </span>
+                        <span class="menu-arrow"></span>
                     </a>
+
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="{{ url('/usuarios') }}">Ruletas</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/usuarios') }}">Jugadas</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/usuarios') }}">Horas</a>
+                        </li>
+                    </ul>
                 </li>
+                
                 <li>
                     <a href="{{ url('/usuarios') }}">
                         <i data-feather="inbox"></i>

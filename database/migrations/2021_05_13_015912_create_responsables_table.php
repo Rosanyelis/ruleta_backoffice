@@ -14,14 +14,13 @@ class CreateResponsablesTable extends Migration
     public function up()
     {
         Schema::create('responsables', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('usuario_id');
+            $table->uuid('id')->primary();            
             $table->uuid('persona_id')->nullable();
             $table->string('rif');
             $table->string('direccion');
+            $table->boolean('estatus')->default(true);
             $table->timestamps();
 
-            $table->foreign('usuario_id')->references('id')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('persona_id')->references('id')->on('personas')->onUpdate('cascade')->onDelete('cascade');
         });
     }

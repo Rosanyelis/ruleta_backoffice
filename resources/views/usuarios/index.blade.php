@@ -33,6 +33,7 @@
                                     <th>Usuario</th>
                                     <th>Correo</th>
                                     <th>Rol</th>
+                                    <th>Estatus</th>
                                     <th width="20px">Acciones</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,13 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $user->nombre }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>
+                                        @if ($user->estatus == true)
+                                            <span class="badge badge-info">Activo</span>
+                                        @else
+                                            <span class="badge badge-danger">Inactivo</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         @if ($user->rol == 'Administrador')
                                         <span class="badge badge-info">Administrador</span>
@@ -76,7 +84,6 @@
     <!-- datatable js -->
     <script src="{{ asset('assets/libs/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/libs/datatables/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables/dataTables.responsive.min.js') }}"></script>
     <script >
         $(document).ready(function() {
         $("#basic-datatable").DataTable({

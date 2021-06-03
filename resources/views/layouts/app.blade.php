@@ -22,7 +22,7 @@
     </head>
 
     <body>
-
+        
         <!-- Begin page -->
         <div id="wrapper">
 
@@ -236,7 +236,8 @@
 
         </div>
         <!-- END wrapper -->
-
+        
+        <script src="{{ asset('js/app.js') }}"></script>
         <!-- Vendor js -->
         <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 

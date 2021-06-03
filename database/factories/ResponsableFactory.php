@@ -22,10 +22,8 @@ class ResponsableFactory extends Factory
      */
     public function definition()
     {
-        $usuarios = DB::table('usuarios')->inRandomOrder()->first();
         $personas = DB::table('personas')->inRandomOrder()->first();
         return [
-            'usuario_id' => $usuarios->id,
             'persona_id' => $personas->id,
             'rif' => $this->faker->uuid(),
             'direccion' => $this->faker->address(),

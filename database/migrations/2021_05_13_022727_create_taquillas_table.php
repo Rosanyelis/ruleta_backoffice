@@ -15,16 +15,15 @@ class CreateTaquillasTable extends Migration
     {
         Schema::create('taquillas', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('usuario_id')->nullable();
-            $table->uuid('responsable_id')->nullable();
+            $table->uuid('cliente_id')->nullable();
             $table->uuid('persona_id')->nullable();
-            $table->string('codigo');
+            $table->string('codigo')->nullable();
             $table->string('direccion');
-            $table->macAddress('direccion_mac')->nullable();
+            $table->string('telefono')->nullable();
+            $table->boolean('estatus')->default(true);
             $table->timestamps();
 
-            $table->foreign('usuario_id')->references('id')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('responsable_id')->references('id')->on('responsables')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('persona_id')->references('id')->on('personas')->onUpdate('cascade')->onDelete('cascade');
         });
     }

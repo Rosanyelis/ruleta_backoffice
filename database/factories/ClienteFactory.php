@@ -22,11 +22,9 @@ class ClienteFactory extends Factory
      */
     public function definition()
     {
-        $usuarios = DB::table('usuarios')->inRandomOrder()->first();
         $responsables = DB::table('responsables')->inRandomOrder()->first();
         $personas = DB::table('personas')->inRandomOrder()->first();
         return [
-            'usuario_id' => $usuarios->id,
             'responsable_id' => $responsables->id,
             'persona_id' => $personas->id,
             'sector' => $this->faker->word(),

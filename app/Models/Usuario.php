@@ -12,13 +12,15 @@ class Usuario extends Authenticatable
 {
     use HasFactory, Notifiable, AutoGenerateUuid;
 
+    protected $table = 'usuarios';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
+        'nombre',
         'email',
         'rol',
         'password',
@@ -42,4 +44,28 @@ class Usuario extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Usuario pertenece a una responsable.
+     */
+    public function responsable()
+    {
+        return $this->belongsTo(Responsable::class);
+    }
+
+    /**
+     * Usuario pertenece a una Cliente.
+     */
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
+
+    /**
+     * Usuario pertenece a una Cliente.
+     */
+    public function taquilla()
+    {
+        return $this->belongsTo(Taquilla::class);
+    }
 }

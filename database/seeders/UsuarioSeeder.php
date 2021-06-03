@@ -22,6 +22,5 @@ class UsuarioSeeder extends Seeder
             'rol' => 'Desarrollador',
         ]);
 
-        \App\Models\Usuario::factory(10)->create();
     }
 }

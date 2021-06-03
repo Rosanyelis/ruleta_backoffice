@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Shreyu - Admin & Dashboard Template</title>
+        <title>Panel Administrativo - Inicio de Sesion</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -82,12 +82,6 @@
                                             </div>
                                         </form>
 
-                                        <div class="mt-2">
-                                            <div class="text-center">
-                                                <p class="text-muted">No posees una cuenta? <a href="{{ route('register') }}" class="text-primary font-weight-bold ml-1">Registrarme</a></p>
-                                            </div> <!-- end col -->
-                                        </div>
-                                        <!-- end row -->
                                     </div>
                                     <div class="col-lg-6 d-none d-md-inline-block">
                                         <div class="auth-page-sidebar">
