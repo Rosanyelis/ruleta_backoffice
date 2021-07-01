@@ -92,8 +92,8 @@
                                 </div>
                             </div>
                             <div class=" align-self-center float-right">
-                                <a href="{{ url('responsables') }}" class="btn btn-light btn-rounded">Regresar</a>
-                                <button type="submit" class="btn btn-secondary btn-rounded">Guardar</button>
+                                <a href="{{ url('responsables') }}" class="btn btn-light">Regresar</a>
+                                <button type="submit" class="btn btn-secondary">Guardar</button>
                             </div>
                         </form>
                     </div>

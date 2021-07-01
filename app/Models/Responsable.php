@@ -14,6 +14,17 @@ class Responsable extends Model
     protected $table = 'responsables';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'rif',
+        'direccion',
+        'estatus',
+    ];
+
+    /**
      * Responsable pertenece a una persona.
      */
     public function persona()
@@ -35,5 +46,13 @@ class Responsable extends Model
     public function clientes()
     {
         return $this->hasMany(Cliente::class, 'responsable_id', 'id');
+    }
+
+    /**
+     * Responsable tiene muchas plantillas asignadas.
+     */
+    public function plantillas()
+    {
+        return $this->hasMany(PlantillaResponsable::class, 'responsable_id', 'id');
     }
 }

@@ -26,7 +26,6 @@
                         <div class="text-right mb-4">
                             <a href="{{ url('/responsables/nuevo-responsable') }}" class="btn btn-secondary"><i class="uil uil-plus"></i> Nuevo Responsable</a>
                         </div>
-                        <example-component></example-component>
                         <table id="basic-datatable" class="table dt-responsive nowrap">
                             <thead>
                                 <tr>
@@ -34,7 +33,7 @@
                                     <th>Nombre</th>
                                     <th>Rif</th>
                                     <th>Estatus</th>
-                                    <th>Acciones</th>
+                                    <th width="20px">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,11 +50,15 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ url('/responsables/'.$resp->id.'/ver-perfil') }}">
+                                        <a href="{{ asset('/responsables/'.$resp->id.'/plantilla-responsables/asignar-plantillas') }}">
+                                            <i class="uil uil-cog text-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Asignar Plantillas"></i>
+                                        </a>
+                                        &nbsp;&nbsp;
+                                        <a href="{{ url('/responsables/'.$resp->id.'/ver-perfil-de-responsable') }}">
                                             <i class="uil uil-eye text-info" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver perfil"></i>
                                         </a>
                                         &nbsp;&nbsp;
-                                        <a href="{{ url('/responsables/'.$resp->id.'/editar') }}">
+                                        <a href="{{ url('/responsables/'.$resp->id.'/editar-responsable') }}">
                                             <i class="uil uil-edit-alt" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar "></i>
                                         </a>
                                         &nbsp;&nbsp;

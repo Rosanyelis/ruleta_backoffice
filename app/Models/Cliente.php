@@ -13,6 +13,19 @@ class Cliente extends Model
     protected $table = 'clientes';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'responsable_id',
+        'persona_id',
+        'sector',
+        'direccion',
+        'estatus',
+    ];
+
+    /**
      * Cliente pertenece a una persona.
      */
     public function persona()
@@ -25,7 +38,7 @@ class Cliente extends Model
      */
     public function usuario()
     {
-        return $this->hasOne(Usuario::class);
+        return $this->hasOne(Usuario::class, 'usuario_id', 'id');
     }
 
     /**
@@ -35,4 +48,5 @@ class Cliente extends Model
     {
         return $this->belongsTo(Responsable::class, 'responsable_id', 'id');
     }
+    
 }

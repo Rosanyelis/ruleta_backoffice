@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PlantillaResponsable;
+use App\Models\PlantillaHorario;
+use App\Models\PlantillaJugada;
+use App\Models\PlantillaRuleta;
 use App\Models\Responsable;
 use App\Models\Persona;
 use App\Models\Usuario;
@@ -338,7 +342,8 @@ class ResponsablesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function guardarCliente(Request $request, $id){
+    public function guardarCliente(Request $request, $id)
+    {
 
         $request->validate([
             'nombre' => ['required', 'max:50'],
@@ -410,5 +415,58 @@ class ResponsablesController extends Controller
         $dato->save();
 
         return redirect('/responsables/'.$id.'/ver-perfil-de-responsable')->with('success', 'Cliente Creado Exitosamente!');
+    }
+
+    /**
+     * Asignar plantillas
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function plantilla($id)
+    {
+        $data['plantilla_ruletas'] = PlantillaRuleta::all()->pluck('nombre', 'id');
+        $data['plantilla_jugadas'] = PlantillaJugada::all()->pluck('nombre', 'id');
+        $data['plantilla_horarios'] = PlantillaHorario::all()->pluck('nombre', 'id');
+        return view('responsables.plantillas.index', compact('id'), ['data' => $data]);
+    }
+
+    /**
+     * Guardar plantilla de responsable.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function guardarPlantilla(Request $request, $id)
+    {
+        $request->validate([
+            'nombre' => 'required',
+            'plantilla_ruleta' => 'required', 'uuid',
+            'plantilla_jugadas' => 'required', 'uuid',
+            'plantilla_horarios' => ['required', 'uuid'],
+        ],[
+            'nombre.required' => 'El valor del campo Nombre de Plantilla Asignada es obligatorio.',
+            'plantilla_ruleta.required' => 'El valor del campo Plantilla de Ruletas es obligatorio.',
+            'plantilla_ruleta.uuid' => 'El valor UUID del campo Plantilla de Ruletas debe ser válido.',
+            'plantilla_jugadas.required' => 'El valor del campo Plantilla de Jugadas es obligatorio.',
+            'plantilla_jugadas.uuid' => 'El valor UUID del campo Plantilla de Jugadas debe ser válido.',
+            'plantilla_horarios.required' => 'El valor del campo Plantilla de Horarios es obligatorio.',
+            'plantilla_horarios.uuid' => 'El valor UUID del campo Plantilla de Horarios debe ser válido.',
+        ]);
+
+        $nombre = $request->input('nombre');
+        $p_ruleta = $request->input('plantilla_ruleta');
+        $p_jugadas = $request->input('plantilla_jugadas');
+        $p_horario = $request->input('plantilla_horarios');
+
+        $plantillaResponsable = new PlantillaResponsable;
+        $plantillaResponsable->responsable_id = $id;
+        $plantillaResponsable->nombre = $nombre;
+        $plantillaResponsable->plantilla_ruleta_id = $p_ruleta;
+        $plantillaResponsable->plantilla_jugada_id = $p_jugadas;
+        $plantillaResponsable->plantilla_horario_id = $p_horario;
+        $plantillaResponsable->save();
+
+        return redirect('/responsables')->with('success', 'Plantillas Asignadas Exitosamente!');
     }
 }

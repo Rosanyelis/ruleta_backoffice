@@ -13,10 +13,27 @@ class Jugada extends Model
     protected $table = 'jugadas';
 
     /**
-     * Los moldes pertenecen a una hora.
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-    public function moldejugadas()
+    protected $fillable = [
+        'nombre',
+    ];
+
+    /**
+     * Las jugadas son de muchas plantillas de jugadas.
+     */
+    public function plantillajugadas()
     {
-        return $this->belongsToMany(MoldeHorarios::class, 'hora_molde_horario');
+        return $this->hasMany(PlantillaJugadaJugada::class, 'jugada_id', 'id');
+    }
+
+    /**
+     * Las jugadas tienen muchos detalles de tickets.
+     */
+    public function detalleticketjugadas()
+    {
+        return $this->hasMany(DetalleTicket::class, 'jugada_id', 'id');
     }
 }

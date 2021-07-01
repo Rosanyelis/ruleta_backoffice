@@ -13,10 +13,27 @@ class Ruleta extends Model
     protected $table = 'ruletas';
 
     /**
-     * Los moldes pertenecen a una hora.
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-    public function molderuletas()
+    protected $fillable = [
+        'nombre',
+    ];
+
+    /**
+     * Las ruletas son de muchas plantillas
+     */
+    public function plantillaruletas()
     {
-        return $this->belongsToMany(MoldeRuletas::class, 'molde_ruleta_ruleta');
+        return $this->hasMany(PlantillaRuletaRuleta::class, 'ruleta_id', 'id');
+    }
+
+    /**
+     * Las ruletas tienen muchos detalles de tickets.
+     */
+    public function detalleticketruletas()
+    {
+        return $this->hasMany(DetalleTicket::class, 'ruleta_id', 'id');
     }
 }

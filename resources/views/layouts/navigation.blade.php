@@ -38,54 +38,52 @@
 
                 <li>
                     <a href="{{ url('/dashboard') }}">
-                        <i data-feather="home"></i>
+                        <i class="uil uil-home-alt"></i>
                         <span> Dashboard </span>
                     </a>
                 </li>
-
+                <li class="menu-title">Grupos</li>
+                <li>
+                    <a href="{{ url('/responsables') }}">
+                        <i class="uil uil-user-square"></i>
+                        <span> Responsables </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/clientes') }}">
+                        <i class="uil uil-user-square"></i>
+                        <span> Clientes </span>
+                    </a>
+                </li>
                 <li>
                     <a href="javascript: void(0);">
-                        <i data-feather="bookmark"></i>
-                        <span> Grupos </span>
-                        <span class="menu-arrow"></span>
+                        <i class="uil uil-airplay"></i>
+                        <span> Taquillas </span>
                     </a>
-
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="{{ url('/responsables') }}">Responsables</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/clientes') }}">Clientes</a>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);">Taquillas</a>
-                        </li>
-                    </ul>
                 </li>
-
+                <li class="menu-title">Plantillas</li>
                 <li>
-                    <a href="javascript: void(0);">
-                        <i data-feather="bookmark"></i>
-                        <span> Plantillas </span>
-                        <span class="menu-arrow"></span>
+                    <a href="{{ url('/plantilla-de-ruletas') }}">
+                        <i class="uil uil-compact-disc"></i>
+                        <span> Ruletas </span>
                     </a>
-
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="{{ url('/usuarios') }}">Ruletas</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/usuarios') }}">Jugadas</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/usuarios') }}">Horas</a>
-                        </li>
-                    </ul>
                 </li>
-                
+                <li>
+                    <a href="{{ url('/plantilla-de-jugadas') }}">
+                        <i class="uil uil-game"></i>
+                        <span> Jugadas </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/plantilla-de-horarios') }}">
+                        <i class="uil uil-clock-eight"></i>
+                        <span> Horarios </span>
+                    </a>
+                </li>
+                <li class="menu-title">Configuraciones</li>
                 <li>
                     <a href="{{ url('/usuarios') }}">
-                        <i data-feather="inbox"></i>
+                        <i class="uil uil-users-alt"></i>
                         <span> Usuarios </span>
                     </a>
                 </li>

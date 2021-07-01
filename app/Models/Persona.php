@@ -13,6 +13,18 @@ class Persona extends Model
     protected $table = 'personas';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'usuario_id',
+        'nombre',
+        'apellido',
+        'sexo',
+    ];
+
+    /**
      * Persona es un responsable.
      */
     public function responsables()
@@ -35,4 +47,5 @@ class Persona extends Model
     {
         return $this->hasMany(Taquilla::class, 'persona_id', 'id');
     }
+
 }

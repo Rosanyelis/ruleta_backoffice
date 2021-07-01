@@ -8,10 +8,11 @@
                 <nav aria-label="breadcrumb" class="float-right mt-1">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item" aria-current="page"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Responsables</li>
+                        <li class="breadcrumb-item" aria-current="page">Responsables</li>
+                        <li class="breadcrumb-item active" aria-current="page">Asignar Usuario</li>
                     </ol>
                 </nav>
-                <h4 class="mb-1 mt-0">Crear Responsables</h4>
+                <h4 class="mb-1 mt-0">Asignar Usuario a Responsable</h4>
             </div>
         </div>
 

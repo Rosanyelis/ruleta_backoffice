@@ -13,10 +13,27 @@ class Hora extends Model
     protected $table = 'horas';
 
     /**
-     * Los moldes pertenecen a una hora.
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-    public function moldehorarios()
+    protected $fillable = [
+        'hora',
+    ];
+
+    /**
+     * La hora está en muchas plantillas de horarios.
+     */
+    public function plantillahoras()
     {
-        return $this->belongsToMany(MoldeHorarios::class, 'hora_molde_horario');
+        return $this->hasMany(PlantillaHorarioHora::class, 'hora_id', 'id');
+    }
+
+    /**
+     * Las horas tienen muchos detalles de tickets.
+     */
+    public function detalletickethoras()
+    {
+        return $this->hasMany(DetalleTicket::class, 'hora_id', 'id');
     }
 }
