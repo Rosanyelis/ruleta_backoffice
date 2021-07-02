@@ -11,7 +11,7 @@ class ApiAuthTaquillaController extends Controller
     public function login(Request $request){
 
         $validateData =  $request->validate([
-            'email' => 'required|email|unique:usuario,email',
+            'email' => 'required|email',
             'password' => 'required'
         ],[
             'email.required' => 'El Correo Electrónico es obligatorio.',
@@ -36,11 +36,11 @@ class ApiAuthTaquillaController extends Controller
             ], 401);
         }
 
-        $user = Usuario::where('email', $request->input('email'))->firstOrFail();
+        $usuarios = Usuario::where('email', $request->input('email'))->firstOrFail();
 
         # falta validacion de direccion mac
 
-        $token = $user->createToken('auth_token')->plainTextToken();
+        $token = $usuarios->createToken('auth_token')->plainTextToken();
 
         return response()->json([
             'status' => 200,
@@ -60,7 +60,7 @@ class ApiAuthTaquillaController extends Controller
      */
     public  function  logout(Request  $request) {
 
-        $request->user()->currentAccessToken()->delete();
+        $request->Usuario()->currentAccessToken()->delete();
         return response()->json([
             'status' => 200,
             'message' => 'Cerraste sesión',
