@@ -10,7 +10,7 @@ class ApiAuthTaquillaController extends Controller
 {
     public function login(Request $request){
 
-        $validateData =  $request->validate([
+        $request->validate([
             'email' => 'required|email',
             'password' => 'required'
         ],[
@@ -20,12 +20,12 @@ class ApiAuthTaquillaController extends Controller
         ]);
 
 
-        if ($validateData) {
-            return response()->json([
-                'status' => 403,
-                'message' => $validateData,
-            ], 403);
-        }
+        // if ($validateData) {
+        //     return response()->json([
+        //         'status' => 403,
+        //         'message' => $validateData->first(),
+        //     ], 403);
+        // }
 
         $credenciales = $request->only('email', 'password');
 
@@ -36,7 +36,7 @@ class ApiAuthTaquillaController extends Controller
             ], 401);
         }
 
-        $usuarios = Usuario::where('email', $request->input('email'))->firstOrFail();
+        $usuarios = Auth::usuario();
 
         # falta validacion de direccion mac
 

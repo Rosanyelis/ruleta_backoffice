@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ApiAuthTaquillaController;
+use App\Http\Controllers\Api\ApiAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/login-taquilla', [ApiAuthTaquillaController::class, 'login']);
-Route::post('/info-usuario', [ApiAuthTaquillaController::class, 'infoUser'])->middleware('auth.sanctum');
+Route::post('/login', [ApiAuthController::class, 'login']);
 
 

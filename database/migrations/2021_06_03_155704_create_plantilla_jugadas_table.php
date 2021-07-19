@@ -27,6 +27,6 @@ class CreatePlantillaJugadasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('molde_jugadas');
+        Schema::dropIfExists('plantilla_jugadas');
     }
 }

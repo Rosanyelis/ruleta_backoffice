@@ -27,6 +27,6 @@ class CreatePlantillaHorariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('molde_horarios');
+        Schema::dropIfExists('plantilla_horarios');
     }
 }

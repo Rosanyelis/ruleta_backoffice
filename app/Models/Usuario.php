@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Traits\AutoGenerateUuid;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 class Usuario extends Authenticatable
 {
-    use HasFactory, Notifiable, AutoGenerateUuid, HasApiTokens;
+    use HasApiTokens, HasFactory, Notifiable, AutoGenerateUuid;
 
     protected $table = 'usuarios';
 

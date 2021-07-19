@@ -27,6 +27,6 @@ class CreatePlantillaRuletasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('molde_ruletas');
+        Schema::dropIfExists('plantilla_ruletas');
     }
 }
