@@ -23,9 +23,9 @@
                 @include('layouts.alert')
                 <div class="card">
                     <div class="card-body">
-                        <div class="text-right mb-4">
-                            <a href="{{ url('/usuarios/crear-usuario') }}" class="btn btn-secondary btn-rounded"><i class="uil uil-plus pt-4"></i> Nuevo Usuario</a>
-                        </div>
+                        {{-- <div class="text-right mb-4">
+                            <a href="{{ url('/usuarios/nuevo-usuario') }}" class="btn btn-secondary"><i class="uil uil-plus pt-4"></i> Nuevo Usuario</a>
+                        </div> --}}
                         <table id="basic-datatable" class="table dt-responsive nowrap">
                             <thead>
                                 <tr>
@@ -44,13 +44,6 @@
                                     <td>{{ $user->nombre }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        @if ($user->estatus == true)
-                                            <span class="badge badge-info">Activo</span>
-                                        @else
-                                            <span class="badge badge-danger">Inactivo</span>
-                                        @endif
-                                    </td>
-                                    <td>
                                         @if ($user->rol == 'Administrador')
                                         <span class="badge badge-info">Administrador</span>
                                         @elseif ($user->rol == 'Cliente')
@@ -61,6 +54,13 @@
                                         <span class="badge badge-success">Responsable</span>
                                         @elseif ($user->rol == 'Desarrollador')
                                         <span class="badge badge-primary">Desarrollador</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($user->estatus == true)
+                                            <span class="badge badge-info">Activo</span>
+                                        @else
+                                            <span class="badge badge-danger">Inactivo</span>
                                         @endif
                                     </td>
                                     <td>
